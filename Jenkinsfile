@@ -20,11 +20,18 @@ pipeline {
     }  
     
             
-    stage('Test') {
+    stage('Clean') {
       steps {
         bat 'npm run clean'
       }
     }
+
+stage('Test') {
+      steps {
+        bat 'npm run test:api'
+      }
+    }
+        
 
 
 }
