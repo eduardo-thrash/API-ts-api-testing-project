@@ -6,6 +6,7 @@ pipeline {
                 echo 'Hello world from API-ts-api-testing-project' 
             }
         }
+
         stage('Git') {
       steps {
         git 'https://github.com/eduardo-thrash/API-ts-api-testing-project.git'
@@ -24,4 +25,8 @@ pipeline {
         sh 'npm clean'
       }
     }
+
+
+}
+
 }
