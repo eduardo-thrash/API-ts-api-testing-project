@@ -9,7 +9,7 @@ pipeline {
 
         stage('Git') {
       steps {
-        git 'https://github.com/eduardo-thrash/API-ts-api-testing-project.git'
+        git branch: 'main', url: 'https://github.com/eduardo-thrash/API-ts-api-testing-project.git'
       }
     }
      
