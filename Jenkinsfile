@@ -22,7 +22,7 @@ pipeline {
             
     stage('Test') {
       steps {
-        sh 'npm clean'
+        bat 'npm clean'
       }
     }
 
