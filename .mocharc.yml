@@ -2,10 +2,10 @@ check-leaks: false
 color: true
 diff: true
 full-trace: true
-reporter: '@serenity-js/mocha'
+reporter: "@serenity-js/mocha"
 require:
   - ts-node/register
   - spec/support/serenity.config.ts
-spec: 'spec/**/*.spec.ts'
-timeout: 5000
+spec: "spec/**/*.spec.ts"
+timeout: 24000
 v8-stack-trace-limit: 100

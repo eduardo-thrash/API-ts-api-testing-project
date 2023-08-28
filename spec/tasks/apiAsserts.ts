@@ -13,4 +13,12 @@ export const apiAsserts = {
       await actorInTheSpotlight().attemptsTo(Ensure.that(LastResponse.status(), equals(httpCodes.OK)));
     }
   },
+
+  created: async () => {
+    const lastResponse = await actorInTheSpotlight().answer(LastResponse.status());
+    const isTheCodeStatusCorrect = AssertEnsure.that.isEqualTo(lastResponse, httpCodes.CREATED);
+    if (!isTheCodeStatusCorrect) {
+      await actorInTheSpotlight().attemptsTo(Ensure.that(LastResponse.status(), equals(httpCodes.CREATED)));
+    }
+  },
 };
