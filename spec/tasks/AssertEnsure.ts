@@ -1,5 +1,3 @@
-import { actorInTheSpotlight, Log, TestCompromisedError } from "@serenity-js/core";
-
 export const AssertEnsure = {
   that: {
     isEqualTo: (actual: number | string | boolean | object, expected: number | string | boolean | object) => {
