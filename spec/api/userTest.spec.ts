@@ -4,9 +4,9 @@ import { apiAsserts } from "../tasks/apiAsserts";
 import { userTask } from "../tasks/userTask";
 import { userInteractions } from "../interactions/userInteractions";
 import { actorNames } from "../constans/actorNames";
-import { Console } from "console";
-import { actorInTheSpotlight } from "@serenity-js/core";
-import { Ensure, equals } from "@serenity-js/assertions";
+import { recall, remember } from "../interactions/actorMemory";
+import { actorMemories } from "../constans/actorMemories";
+import { constants } from "../constans/constants";
 
 describe("Users API", () => {
   describe("List Users endpoint", () => {
@@ -15,9 +15,14 @@ describe("Users API", () => {
 
       await agentAbility.can();
 
+      await remember(actorMemories.FULL_NAME, constants.FULL_NAME);
+
       await userInteractions.getUsersByPage();
 
       await apiAsserts.ok();
+
+      const fullName = await recall(actorMemories.FULL_NAME);
+      console.log(fullName);
 
       await userTask.validateListUsersResponse();
     });
